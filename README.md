@@ -1,4 +1,2 @@
-# pro-c35
-
-
-Output Link: https://gublu123.github.io/pro-c35/
+# p5.play-boilerplate
+Boiler plate for p5.play

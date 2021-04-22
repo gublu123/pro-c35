@@ -5,9 +5,9 @@ function preload()
 {
   backgroundImg = loadImage("images/Hot Air Ballon-01.png");
   balloonImage1 = loadAnimation("images/Hot Air Ballon-02.png");
-  balloonImage2 = loadAnimation("images/Hot Air Ballon-02.png", "images/Hot Air Ballon-02.png",
-  "images/Hot Air Ballon-03.png", "images/Hot Air Ballon-03.png",
-  "images/Hot Air Ballon-04.png", "images/Hot Air Ballon-04.png");
+  balloonImage2 = loadAnimation("images/Hot Air Ballon-02.png", "images/Hot Air Ballon-02.png","images/Hot Air Ballon-02.png",
+  "images/Hot Air Ballon-03.png", "images/Hot Air Ballon-03.png","images/Hot Air Ballon-03.png",
+  "images/Hot Air Ballon-04.png", "images/Hot Air Ballon-04.png","images/Hot Air Ballon-04.png");
   
 }
 
@@ -28,25 +28,30 @@ function setup() {
 function draw() {
   background(backgroundImg);
 
-  textSize(4);
-  fill("grey");
-  stroke("white");
-
   if(keyDown(LEFT_ARROW)){
-    balloon.x = balloon.x - 10;
+    updateHeight(-10, 0);
+    balloon.addAnimation("hotAirBalloon", balloonImage2);
 }
 else if(keyDown(RIGHT_ARROW)){
-  balloon.x = balloon.x + 10;
+  updateHeight(10, 0);
+  balloon.addAnimation("hotAirBalloon", balloonImage2);
 }
 else if(keyDown(UP_ARROW)){
   updateHeight(0, -10);
   balloon.addAnimation("hotAirBalloon", balloonImage2);
-  balloon.scale = balloon.scale - 0.01;
+  balloon.scale = balloon.scale - 0.005;
 }
 else if(keyDown(DOWN_ARROW)){
-  balloon.y = balloon.y + 10;
+  updateHeight(0, 10);
+  balloon.addAnimation("hotAirBalloon", balloonImage2);
+  balloon.scale = balloon.scale + 0.005;;
 }
   drawSprites();
+
+  textSize(4);
+  fill("grey");
+  stroke("white");
+  text("Use arrows keys to move the hot air balloon", 40, 40);
 }
 
 function updateHeight(x, y)
